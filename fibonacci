@@ -1,0 +1,19 @@
+t=int(input())
+for i in range(t):
+    s=input()
+    p=set(s)
+    l=[]
+    for i in p:
+        l.append(s.count(i))
+    l.sort()
+    if len(l)>=4 and l[3]!=l[1]+l[2]:
+        l[0],l[1]=l[1],l[0]
+    ok=True
+    if len(l)>=3:
+        for i in range(2,len(l)):
+            if l[i]!=l[i-1]+l[i-2]:
+                ok=False
+    if ok:
+        print("Dynamic")
+    else:
+        print("Not")
